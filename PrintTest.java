@@ -33,6 +33,16 @@ public class PrintTest {
 		System.out.printf("제 이름은 %s이고, 나이는 %d입니다\n" , name, age); 
 		System.out.println("제 이름은 "+name+"이고, 나이는 "+age+"입니다"); //위와 같음
 		System.out.printf("%d / %o / %x / %c \n", 65,65,65,65); //65 / 101 / 41 / A
+		
+		String name2 = "홍길동";
+		int age2 = 20;
+		String tel = "010-1234-1234";
+		System.out.printf("이름\t: %s\n", name2);
+		System.out.printf("나이\t: %d\n", age2);
+		System.out.printf("전화번호\t: %s\n", tel);
+		System.out.println("금액은 \\35,000원 입니다");
+		System.out.println("이것은 큰따옴표\"입니다");
+				
 	}
 
 }
