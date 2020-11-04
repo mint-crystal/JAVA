@@ -1,49 +1,54 @@
-package object.method;
+package kr.or.iei.project.array;
 
 public class Run {
 
 	public static void main(String[] args) {
-		MethodExam01 me = new MethodExam01();
-		//메소드 표현식
-		me.func1();
-		me.func2(10);
-		double num = me.func3();
-		System.out.println(num);
-		int sum = me.func4(10, 20);
-		System.out.println(sum);
-		
-		//매개변수 실습 - 여러 자료형의 매개변수 입력
-		me.func5(10, '가', 5.7);
-		
-		//매개변수 실습 - 참조자료형 매개변수
-		int num2 = 100;
-		System.out.println(num2);
-		me.func6(num2);		//Call by Value : 값을 넘겨주면서 메소드를 호출
-		System.out.println(num2);	//다시  100 출력
-		
-		//참조변수는 주소를 넘겨주기 때문에 바뀐 값이 출력
-		//Call by Address = Call by Reference
-		int[] arr1 = new int[] {10, 20, 30, 40, 50};
-		System.out.println(arr1[0]);
-		me.func7(arr1);
-		System.out.println(arr1[0]); //func7의 값인 20 출력
-		
-		MethodExam02 meme = new MethodExam02();
-		meme.name = "홍길동";
-		meme.age = 20;
-		meme.height = 160.2;
-		System.out.println("이름 : "+meme.name+", 나이 : "+meme.age+", 키 : "+meme.height);
-		me.func8(meme);
-		System.out.println("이름 : "+meme.name+", 나이 : "+meme.age+", 키 : "+meme.height);
-		
-		//매개변수 실습 - 가변인자
-		me.func9(10, 20, 30);
-		
-		//반환자료형 실습
-		me.func10(10);
-		me.func10(0);	//메소드10 실행 만 출력
-		System.out.println(me.func10(0)); //리턴값 출력
-		System.out.println("메인메서드 내용");
+		//일반 변수
+			//자료형 변수 명 = 값;
+			int num = 10;
+			num = 20;
+			
+		//일반 배열
+			//자료형[] 배열 명 = new 자료형[크기];
+			int [] arr;
+			arr = new int[5];	
+			arr[0] = 10;	
+			//arr - 참조변수, 참조변수의 주소를 따라가면 실제 정수형 공간이 5개 있음
+			
+		//객체
+			//클래스 객체 명 = new 클래스 명();
+			ObjectArrayExam01 oae; //클래스의 참조변수 생성
+			oae = new ObjectArrayExam01();	//실제 객체생성
+			oae.name = "홍길동";
+			//oae - 참조변수, 참조변수의 주소를 따라가면 실제 객체 공간 1개가 있음
+				//객체 공간 안에 여러 멤버들이 있음
+			
+		//객체 배열
+			//클래스 명[] 객체배열 명 = new 클래스 명[크기];
+			ObjectArrayExam01[] oaeArr;	//객체 배열의 참조변수 생성
+			oaeArr = new ObjectArrayExam01[5];	//실제 클래스의 참조변수 생성
+			//oaeArr - 참조변수1, 참조변수의 주소를 따라가면 객체의 주소를 저장하는 참조변수2 공간 5개 있음
+				//참조변수2의 주소를 따라가면 실제 댇체공간 1개가 있음
+			//인덱스를 이용한 접근
+			oaeArr[0] = new ObjectArrayExam01();	//실제 객체 생성
+			//위 코드가 없으면 데이터를 담으려고 하지만 실제 공간이 없어서 실행했을때 런타임오류
+			oaeArr[0].name = "김길동";
+			oaeArr[0].inform();
+			
+			//반복문을 이용한 접근
+			for(int i = 0; i<oaeArr.length; i++) {
+			oaeArr[i] = new ObjectArrayExam01();
+			oaeArr[i].name = "김길동";
+			oaeArr[i].inform();
+			}
+			
+			//초기값
+			int[] arr2 = {10,20,30};
+			ObjectArrayExam01[] oaeArr2 = {new ObjectArrayExam01(), new ObjectArrayExam01()};
+			
+			int[] arr3 = new int[] {10,20,30};
+			ObjectArrayExam01 [] oaeArr3 = new ObjectArrayExam01[] {new ObjectArrayExam01(), new ObjectArrayExam01()};
+			
 	}
-	
+
 }
